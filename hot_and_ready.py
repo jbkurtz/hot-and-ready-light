@@ -6,7 +6,7 @@ import json
 import time
 import requests
 
-# led = LED(18)
+led = LED(18)
 
 try:
     with open(os.path.join(sys.path[0], "config.json"), "r") as f:
@@ -25,12 +25,10 @@ while True:
         response = resp.json()[0]['Location']['Hotlight']
     except:
         raise
-    
+
     if response:
-        #led.on()
-        print('hotlight on')
+        led.on()
     else:
-        #led.off()
-        print('hotlight off')
+        led.off()
 
     time.sleep(rest)
